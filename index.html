@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sherlock Lawyers & Advisory</title>
+    <link rel="shortcut icon" href="./assets/justice-scale.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f8fc; /* Light background */
+            cursor: none; /* Hide default cursor */
+        }
+
+        /* --- Custom Cursor Styles --- */
+        #custom-cursor {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            background: url('./assets/auction.png') no-repeat center center / contain;
+            background-color: #A37A00; /* Deep Gold/Brass */
+            mix-blend-mode: exclusion; /* Makes it visible on any background */
+            border-radius: 50%;
+            pointer-events: none; /* Allows clicks to pass through */
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, background-color 0.2s ease;
+            z-index: 9999;
+        }
+
+        /* Cursor hover effect */
+        .cursor-hover {
+            transform: translate(-50%, -50%) scale(3.5);
+            background-color: #664d00;
+        }
+
+        /* --- Modal Backdrop --- */
+        #initial-modal-backdrop {
+            background-color: rgba(0, 18, 51, 0.85); /* Dark blue overlay */
+        }
+
+        /* Responsive Input Styling */
+        .form-input-styled {
+            transition: border-color 0.2s, box-shadow 0.2s;
+            /* Applying Tailwind classes */
+            @apply mt-1 block w-full border-b-2 border-gray-200 p-3 focus:border-[#A37A00] focus:outline-none rounded-t-lg bg-gray-50;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <div id="custom-cursor"></div>
+
+    <div id="initial-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 transition-opacity duration-500 ease-out">
+        <div id="initial-modal-backdrop" class="absolute inset-0"></div>
+        <div class="relative bg-white max-w-lg w-full p-8 md:p-12 rounded-xl shadow-2xl transform transition-transform duration-500 scale-100">
+            <h2 class="text-3xl lg:text-4xl font-bold text-[#001233] mb-4">Welcome to Sherlock Lawyers & Advisory</h2>
+            <p class="text-gray-600 mb-6">
+                We're committed to providing clear, decisive legal counsel. Please explore our services and discover how our team can guide you through complex legal challenges.
+            </p>
+            <button onclick="closeModal()" class="bg-[#A37A00] hover:bg-[#8F6A00] text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md">
+                Enter
+            </button>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-10 p-4 bg-white rounded-xl shadow-lg">
+            <div class="text-xl sm:text-2xl font-extrabold text-[#001233] mb-4 md:mb-0">
+                SHERLOCK <span class="text-[#A37A00]">LAWYERS</span>
+            </div>
+            <nav class="flex flex-wrap justify-center space-x-1 sm:space-x-2 md:space-x-6 font-medium text-gray-700 text-sm sm:text-base">
+                <a href="#" onclick="changePage('home-section', event)" class="nav-link py-2 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:text-[#A37A00] hover:bg-gray-50">Home</a>
+                <a href="#" onclick="changePage('services-section', event)" class="nav-link py-2 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:text-[#A37A00] hover:bg-gray-50">Expertise</a>
+                <a href="#" onclick="changePage('appointment-section-new', event)" class="nav-link py-2 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:text-[#A37A00] hover:bg-gray-50">Book</a>
+                <a href="#" onclick="changePage('contact-section', event)" class="nav-link py-2 px-2 sm:px-3 rounded-lg transition-colors duration-200 hover:text-[#A37A00] hover:bg-gray-50">Contact</a>
+            </nav>
+        </header>
+    </div>
+
+    <div id="full-site-morph-wrapper" class="transition-all duration-300 ease-in-out opacity-100 scale-100">
+        
+        <div id="dynamic-content-container" class="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+            <main class="space-y-12 md:space-y-16">
+                
+                <section id="home-section" class="page-section">
+                    <div class="bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#001233] mb-4 leading-tight">Decisive Legal Strategy for a Complex World</h1>
+                                <p class="text-base sm:text-lg text-gray-600 mb-6">
+                                    We provide specialized legal advice and representation, focusing on corporate litigation, regulatory compliance, and intellectual property. Your complexity is our expertise.
+                                </p>
+                                <a href="#" onclick="changePage('appointment-section-new', event)" class="inline-block bg-[#A37A00] hover:bg-[#8F6A00] text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] shadow-xl text-sm sm:text-base">
+                                    Schedule a Consultation
+                                </a>
+                            </div>
+                            <div class="hidden sm:block">
+                                <img src="https://placehold.co/600x400/001233/f7f8fc?text=Scales+of+Justice" alt="Scales of Justice Graphic" class="w-full h-auto rounded-lg shadow-2xl" onerror="this.onerror=null; this.src='https://placehold.co/600x400/001233/f7f8fc?text=Scales+of+Justice';">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#001233] mb-8 sm:mb-10 text-center border-b-2 border-[#A37A00] pb-2">Meet Our Leading Counsel</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                            <div class="text-center p-6 bg-gray-50 rounded-lg shadow-md transition transform hover:shadow-xl hover:-translate-y-1">
+                                <img src="https://placehold.co/120x120/A37A00/f7f8fc?text=L.A." alt="Lawyer Profile 1" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-[#001233]">
+                                <h3 class="text-lg sm:text-xl font-bold text-[#001233]">MUHAMMAD ABU SUFIAN TALUKDAR <span class="text-base sm:text-lg text-[#A37A00] ml-1">🎓</span></h3>
+                                <p class="text-[#A37A00] mb-3 text-sm">Founding Partner, Litigation</p>
+                                <p class="text-xs sm:text-sm text-gray-600">Specializes in high-stakes corporate and commercial disputes across federal jurisdictions.</p>
+                            </div>
+                            <div class="text-center p-6 bg-gray-50 rounded-lg shadow-md transition transform hover:shadow-xl hover:-translate-y-1">
+                                <img src="https://placehold.co/120x120/A37A00/f7f8fc?text=C.M." alt="Lawyer Profile 2" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-[#001233]">
+                                <h3 class="text-lg sm:text-xl font-bold text-[#001233]">Charles Monroe, Esq. <span class="text-base sm:text-lg text-[#A37A00] ml-1">🎓</span></h3>
+                                <p class="text-[#A37A00] mb-3 text-sm">Managing Partner, Corporate</p>
+                                <p class="text-xs sm:text-sm text-gray-600">Expert in structuring international mergers and acquisitions, and regulatory compliance.</p>
+                            </div>
+                            <div class="text-center p-6 bg-gray-50 rounded-lg shadow-md transition transform hover:shadow-xl hover:-translate-y-1 sm:col-span-2 md:col-span-1 sm:mx-auto sm:w-1/2 md:w-full">
+                                <img src="https://placehold.co/120x120/A37A00/f7f8fc?text=E.W." alt="Lawyer Profile 3" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-[#001233]">
+                                <h3 class="text-lg sm:text-xl font-bold text-[#001233]">Elara Vance, Esq. <span class="text-base sm:text-lg text-[#A37A00] ml-1">🎓</span></h3>
+                                <p class="text-[#A37A00] mb-3 text-sm">Senior Counsel, Intellectual Property</p>
+                                <p class="text-xs sm:text-sm text-gray-600">Dedicated to patent enforcement and global trademark portfolio management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#001233] mb-8 sm:mb-10 text-center border-b-2 border-[#A37A00] pb-2">Our Specialized Area</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                            <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:scale-[1.02]">
+                                <div class="flex items-start mb-3">
+                                    <span class="text-3xl sm:text-4xl mr-4 text-[#001233]">🛡️</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">Regulatory & Compliance</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">Guiding organizations through complex local and international regulatory frameworks (e.g., GDPR, financial regulations, industry-specific standards) to ensure full operational compliance and minimize legal exposure.</p>
+                            </div>
+                            <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:scale-[1.02]">
+                                <div class="flex items-start mb-3">
+                                    <span class="text-3xl sm:text-4xl mr-4 text-[#001233]">🏠</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">Real Estate Law</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">Handling commercial property acquisitions, leasing agreements, zoning disputes, and environmental compliance for developers and large-scale investors.</p>
+                            </div>
+                            <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:scale-[1.02]">
+                                <div class="flex items-start mb-3">
+                                    <span class="text-3xl sm:text-4xl mr-4 text-[#001233]">🤝</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">Employment Law</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">Advising on HR policies, termination disputes, non-compete agreements, and complex labor relations, protecting both employers and high-level executives.</p>
+                            </div>
+                            <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:scale-[1.02]">
+                                <div class="flex items-start mb-3">
+                                    <span class="text-3xl sm:text-4xl mr-4 text-[#001233]">💰</span>
+                                    <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">Tax Planning & Disputes</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">Strategic tax advisory for businesses and individuals, including representation in audits and disputes with national tax authorities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="services-section" class="page-section hidden bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#001233] mb-8 border-b-2 border-[#A37A00] pb-2">Our Areas of Expertise (Full List)</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-md transition transform hover:shadow-xl hover:-translate-y-1">
+                            <div class="text-4xl sm:text-5xl mb-3 text-center">🏢</div>
+                            <h3 class="text-xl font-bold text-[#001233] mb-2 text-center">Corporate & M&A</h3>
+                            <p class="text-sm text-gray-600 text-center">Structuring deals, ensuring compliance, and handling mergers and acquisitions with precision and speed.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-md transition transform hover:shadow-xl hover:-translate-y-1">
+                            <div class="text-4xl sm:text-5xl mb-3 text-center">⚖️</div>
+                            <h3 class="text-xl font-bold text-[#001233] mb-2 text-center">Complex Litigation</h3>
+                            <p class="text-sm text-gray-600 text-center">Aggressive representation in disputes, regulatory defense, and arbitration across all major jurisdictions.</p>
+                        </div>
+                        <div class="p-6 bg-gray-50 rounded-lg shadow-md transition transform hover:shadow-xl hover:-translate-y-1 sm:col-span-2 md:col-span-1 sm:mx-auto sm:w-1/2 md:w-full">
+                            <div class="text-4xl sm:text-5xl mb-3 text-center">💡</div>
+                            <h3 class="text-xl font-bold text-[#001233] mb-2 text-center">Intellectual Property</h3>
+                            <p class="text-sm text-gray-600 text-center">Protecting your ideas, trademarks, patents, and copyrights in the digital and physical marketplaces.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="appointment-section-new" class="page-section hidden bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#001233] mb-4 text-center border-b-2 border-[#A37A00] pb-2">Book Your Confidential Appointment</h2>
+                    <p class="text-sm sm:text-base text-gray-600 mb-8 sm:mb-10 text-center max-w-3xl mx-auto">
+                        Fill out the form below to request a slot. Our team will confirm your preferred date and time within one business hour.
+                    </p>
+                    
+                    <div class="max-w-xl mx-auto">
+                        <div id="appointment-message" class="text-center text-green-700 font-bold mb-4 p-3 bg-green-100 border border-green-300 rounded-lg hidden text-sm sm:text-base">
+                            Appointment request submitted successfully! We will contact you shortly.
+                        </div>
+
+                        <form id="appointment-form" class="space-y-4 sm:space-y-6" onsubmit="handleAppointmentSubmit(event)">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                                <div>
+                                    <label for="appt-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                    <input type="text" id="appt-name" required placeholder="Write your name" class="form-input-styled w-full border-2 rounded-lg px-2 py-1">
+                                </div>
+                                <div>
+                                    <label for="appt-email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                    <input type="email" id="appt-email" required placeholder="Write your email" class="form-input-styled w-full border-2 rounded-lg px-2 py-1">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                                <div>
+                                    <label for="appt-date" class="block text-sm font-medium text-gray-700">Preferred Date</label>
+                                    <input type="date" id="appt-date" required class="form-input-styled w-full border-2 rounded-lg px-2 py-1">
+                                </div>
+                                <div>
+                                    <label for="appt-time" class="block text-sm font-medium text-gray-700">Preferred Time Slot</label>
+                                    <select id="appt-time" required class="form-input-styled appearance-none w-full border-2 rounded-lg px-2 py-1">
+                                        <option value="" disabled selected>Select Time</option>
+                                        <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                                        <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="appt-service" class="block text-sm font-medium text-gray-700">Service Area</label>
+                                    <select id="appt-service" required class="form-input-styled appearance-none w-full border-2 rounded-lg px-2 py-1">
+                                        <option value="" disabled selected>Select Area</option>
+                                        <option value="litigation">Litigation & Dispute</option>
+                                        <option value="corporate">Corporate & M&A</option>
+                                        <option value="ip">Intellectual Property</option>
+                                        <option value="compliance">Regulatory & Compliance</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="appt-summary" class="block text-sm font-medium text-gray-700">Brief Case Summary</label>
+                                <textarea id="appt-summary" rows="4" placeholder="Briefly describe your legal need (confidential)..." required class="form-input-styled w-full border-2 rounded-lg px-2 py-1"></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-button" class="w-full bg-[#A37A00] hover:bg-[#8F6A00] text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-[1.01] shadow-xl text-base sm:text-lg">
+                                Submit Request
+                            </button>
+                        </form>
+                    </div>
+                </section>
+                
+                <section id="contact-section" class="page-section hidden bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg max-w-2xl mx-auto">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#001233] mb-8 border-b-2 border-[#A37A00] pb-2 text-center">Get In Touch</h2>
+                    <form class="space-y-4 sm:space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                            <input type="text" id="name" class="form-input-styled w-full border-2 rounded-lg px-2 py-1">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" class="form-input-styled w-full border-2 rounded-lg px-2 py-1">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Your Inquiry</label>
+                            <textarea id="message" rows="4" class="form-input-styled w-full border-2 rounded-lg px-2 py-1"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#001233] hover:bg-[#000d23] text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-[1.01] shadow-xl text-base sm:text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </section>
+                
+            </main>
+        </div>
+        
+        <footer class="bg-gray-900 text-white py-8 sm:py-10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-xl font-extrabold mb-3">
+                        Sherlock <span class="text-[#A37A00]">Lawyers</span>
+                    </div>
+                    <p class="text-sm text-gray-400">Decisive counsel, global expertise.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-[#A37A00] mb-3">Contact Us</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>(555) 123-9876</li>
+                        <li><a href="mailto:contact@sherlock-lawyers.com" class="hover:text-white transition-colors">contact@sherlock-lawyers.com</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-[#A37A00] mb-3">Our Office</h4>
+                    <address class="space-y-2 text-sm text-gray-400 not-italic">
+                        123 Legal Plaza, Suite 400<br>
+                        Metropolis, NY 10001
+                    </address>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-[#A37A00] mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="changePage('services-section', event)">Practice Areas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="changePage('contact-section', event)">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-700 mt-6 sm:mt-8 pt-6 text-center text-xs sm:text-sm text-gray-500">
+                &copy; 2025 Sherlock Lawyers & Advisory. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        // --- Global Variables and Setup ---
+        const customCursor = document.getElementById('custom-cursor');
+        const fullSiteMorphWrapper = document.getElementById('full-site-morph-wrapper'); 
+        const initialModal = document.getElementById('initial-modal');
+        const interactiveElements = 'a, button, input, textarea, select, [onclick]'; // Elements that trigger the hover state
+
+        // --- 1. Custom Cursor Logic (Unchanged) ---
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        });
+
+        document.addEventListener('mouseover', (e) => {
+            let target = e.target;
+            if (target.matches(interactiveElements) || target.closest(interactiveElements)) {
+                customCursor.classList.add('cursor-hover');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            let target = e.target;
+            if (target.matches(interactiveElements) || target.closest(interactiveElements)) {
+                customCursor.classList.remove('cursor-hover');
+            }
+        });
+
+        // --- 2. Initial Modal Logic (Unchanged) ---
+        window.onload = function() {
+            initialModal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; 
+            
+            const homeLink = document.querySelector('.nav-link[onclick*="home-section"]');
+            if (homeLink) {
+                // Ensure initial active state is applied after load
+                homeLink.classList.add('bg-gray-100', 'text-[#A37A00]');
+            }
+
+            // Check if the device is a touch device and hide the custom cursor if it is
+            if ('ontouchstart' in window || navigator.maxTouchPoints) {
+                customCursor.style.display = 'none';
+                document.body.style.cursor = 'default'; // Restore default cursor
+            }
+        };
+
+        function closeModal() {
+            initialModal.classList.add('opacity-0');
+            initialModal.querySelector('div:last-child').classList.add('scale-90');
+
+            setTimeout(() => {
+                initialModal.classList.add('hidden', 'pointer-events-none');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            }, 500);
+        }
+
+        // --- 3. Dynamic Page Navigation with Full Site Morph Transition (Unchanged logic) ---
+        function changePage(pageId, event) {
+            if (event) event.preventDefault(); // Stop link from jumping
+            
+            const targetSection = document.getElementById(pageId);
+            const allSections = document.querySelectorAll('.page-section');
+            
+            // Check if the target section is already visible to prevent unnecessary morphing
+            if (targetSection && targetSection.classList.contains('hidden')) {
+                // 1. Start "Morph Out" (Fade and Shrink) transition on the full content wrapper
+                fullSiteMorphWrapper.classList.remove('opacity-100', 'scale-100');
+                fullSiteMorphWrapper.classList.add('opacity-0', 'scale-95');
+
+                // Wait for the transition out to complete (300ms)
+                setTimeout(() => {
+                    // 2. Change content (hide old, show new)
+                    allSections.forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    targetSection.classList.remove('hidden');
+
+                    // 3. Start "Morph In" (Fade and Expand) transition on the full content wrapper
+                    fullSiteMorphWrapper.classList.remove('opacity-0', 'scale-95');
+                    fullSiteMorphWrapper.classList.add('opacity-100', 'scale-100');
+                    
+                    // Scroll to the top of the dynamic content container (below the header)
+                    const dynamicContentContainer = document.getElementById('dynamic-content-container');
+                    // Scroll to the content area itself, which is right below the header
+                    window.scrollTo({ top: dynamicContentContainer.offsetTop - 30, behavior: 'smooth' }); 
+                }, 300);
+
+                // Update active navigation link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('bg-gray-100', 'text-[#A37A00]');
+                });
+                
+                let activeLink = document.querySelector(`.nav-link[onclick*="${pageId}"]`);
+
+                if (activeLink) {
+                    activeLink.classList.add('bg-gray-100', 'text-[#A37A00]');
+                }
+            }
+        }
+        
+        // --- 4. Form Submission Handler (Unchanged) ---
+        function handleAppointmentSubmit(event) {
+            event.preventDefault(); // Prevent actual form submission
+            const form = document.getElementById('appointment-form');
+            const message = document.getElementById('appointment-message');
+            const submitButton = document.getElementById('submit-button');
+
+            // Simulate form submission success
+            message.classList.remove('hidden');
+            form.reset(); // Clear the form
+
+            // Optionally hide the success message after a few seconds
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 5000);
+        }
+        
+    </script>
+</body>
+</html>
