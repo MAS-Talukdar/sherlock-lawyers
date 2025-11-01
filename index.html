@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sherlock Lawyers & Advisory</title>
     <!-- Font Awesome CDN -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./Styles/style.css" />
     <!-- Placeholder favicon URL is used as the original was a local asset -->
     <link
       rel="shortcut icon"
@@ -13,76 +20,6 @@
       type="image/x-icon"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
-      body {
-        font-family: "Inter", sans-serif;
-      }
-
-      /* --- Animated Background Layer --- */
-      #animated-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -10; /* Ensure it stays behind everything */
-        background-image: url("./assets/background.png");
-        background-size: 200% 400%;
-        animation: gradientShift 20s ease infinite;
-        filter: brightness(0.5); /* Keep it dark and subtle */
-      }
-
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      /* --- Custom Cursor Styles --- */
-      #custom-cursor {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 35px; /* adjust size */
-        height: 35px;
-        pointer-events: none;
-        z-index: 9999;
-        background: url("./assets/auction.png") no-repeat center/contain;
-        transition: transform 0.05s ease;
-      }
-
-      /* Cursor hover effect */
-      .cursor-hover {
-        transform: translate(-50%, -50%) scale(2);
-        background-color: #ffd700; /*Brighter gold on hover*/
-        /* background-image: url('./assets/auction.png'); */
-      }
-
-      /* --- Modal Backdrop --- */
-      #initial-modal-backdrop {
-        background-color: rgba(
-          0,
-          18,
-          51,
-          0.95
-        ); /* Slightly darker overlay for the modal */
-      }
-
-      /* Responsive Input Styling */
-      .form-input-styled {
-        transition: border-color 0.2s, box-shadow 0.2s;
-        /* Applying Tailwind classes */
-        @apply mt-1 block w-full border-b-2 border-gray-200 p-3 focus:border-[#A37A00] focus:outline-none rounded-t-lg bg-gray-50;
-      }
-    </style>
   </head>
   <body class="min-h-screen">
     <!-- New Animated Background Element -->
@@ -198,7 +135,6 @@
                 </div>
               </div>
             </div>
-
             <div
               class="bg-white p-6 mb-3 sm:p-8 mb-1 md:p-12 mb-2 rounded-xl shadow-lg"
             >
@@ -278,7 +214,6 @@
                 </div>
               </div>
             </div>
-
             <div class="bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg">
               <h2
                 class="text-3xl sm:text-4xl font-extrabold text-[#001233] mb-8 sm:mb-10 text-center border-b-2 border-[#A37A00] pb-2"
@@ -291,8 +226,8 @@
                 >
                   <div class="flex items-start mb-3">
                     <span class="text-3xl sm:text-4xl mr-4 text-[#001233]"
-                      ><i class="fa-solid fa-scale-balanced"></i></span
-                    >
+                      ><i class="fa-solid fa-scale-balanced"></i
+                    ></span>
                     <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">
                       Constitutional
                     </h3>
@@ -311,8 +246,8 @@
                 >
                   <div class="flex items-start mb-3">
                     <span class="text-3xl sm:text-4xl mr-4 text-[#001233]"
-                      ><i class="fa-solid fa-gavel"></i></span
-                    >
+                      ><i class="fa-solid fa-gavel"></i
+                    ></span>
                     <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">
                       Civil
                     </h3>
@@ -330,8 +265,8 @@
                 >
                   <div class="flex items-start mb-3">
                     <span class="text-3xl sm:text-4xl mr-4 text-[#001233]"
-                      ><i class="fa-solid fa-handcuffs"></i></span
-                    >
+                      ><i class="fa-solid fa-handcuffs"></i
+                    ></span>
                     <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">
                       Criminal
                     </h3>
@@ -344,46 +279,60 @@
                     employers and high-level executives.
                   </p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-[1.02]">
+                <div
+                  class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-[1.02]"
+                >
                   <div class="flex items-start mb-3">
                     <span class="text-3xl sm:text-4xl mr-4 text-[#001233]"
-                      ><i class="fa-regular fa-building"></i></span>
+                      ><i class="fa-regular fa-building"></i
+                    ></span>
                     <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">
                       Corporate
                     </h3>
                   </div>
                   <p
-                    class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">
+                    class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4"
+                  >
                     Strategic tax advisory for businesses and individuals,
                     including representation in audits and disputes with
                     national tax authorities.
                   </p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-[1.02]">
+                <div
+                  class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-[1.02]"
+                >
                   <div class="flex items-start mb-3">
                     <span class="text-3xl sm:text-4xl mr-4 text-[#001233]"
-                      ><i class="fa-solid fa-people-roof"></i></span>
+                      ><i class="fa-solid fa-people-roof"></i
+                    ></span>
                     <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">
                       Family
                     </h3>
                   </div>
                   <p
-                    class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">
+                    class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4"
+                  >
                     Strategic tax advisory for businesses and individuals,
                     including representation in audits and disputes with
                     national tax authorities.
                   </p>
                 </div>
-                <div class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-[1.02]">
+                <div
+                  class="p-6 bg-gray-50 rounded-xl shadow-md transition transform hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-[1.02]"
+                >
                   <div class="flex items-start mb-3">
                     <span class="text-3xl sm:text-4xl mr-4 text-[#001233]"
-                      ><i class="fa-sharp-duotone fa-solid fa-money-bill-1-wave"></i></span>
+                      ><i
+                        class="fa-sharp-duotone fa-solid fa-money-bill-1-wave"
+                      ></i
+                    ></span>
                     <h3 class="text-xl sm:text-2xl font-bold text-[#001233]">
                       Tax Planning & Disputes
                     </h3>
                   </div>
                   <p
-                    class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4">
+                    class="text-sm sm:text-base text-gray-600 border-l-4 border-[#A37A00] pl-4"
+                  >
                     Strategic tax advisory for businesses and individuals,
                     including representation in audits and disputes with
                     national tax authorities.
@@ -503,42 +452,47 @@
                       class="form-input-styled w-full border-2 rounded-lg px-2 py-1"
                     />
                   </div>
-                  </div>
+                </div>
+                <div>
+                  <!-- Phone Number Input (Static Country Code Dropdown) -->
                   <div>
-                    <!-- Phone Number Input (Static Country Code Dropdown) -->
-                  <div>
-                    <label for="phone-input" class="block text-sm font-medium text-gray-700 mb-1">
-                    Mobile Number
+                    <label
+                      for="phone-input"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                    >
+                      Mobile Number
                     </label>
-                
+
                     <div class="flex mt-1">
-                    <!-- Country Code Dropdown -->
-                    <select id="country-code" 
+                      <!-- Country Code Dropdown -->
+                      <select
+                        id="country-code"
                         name="country_code"
-                        class="inline-flex items-center w-40 text-sm px-3 py-2 text-gray-700 bg-gray-50 border border-r-0 border-gray-300 rounded-l-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
-                        
+                        class="inline-flex items-center w-40 text-sm px-3 py-2 text-gray-700 bg-gray-50 border border-r-0 border-gray-300 rounded-l-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                      >
                         <!-- Static Options - Added IDs and Codes for clarity -->
                         <option value="+880" selected>Bangladesh +880</option>
                         <option value="+91">India +91</option>
                         <option value="+92">Pakistan +92</option>
                         <option value="+1">USA/Canada +1</option>
                         <option value="INT">Others +XXX</option>
-                    </select>
-                    
-                    <!-- The input field for local digits -->
-                    <input 
-                        type="tel" 
-                        id="phone-input" 
+                      </select>
+
+                      <!-- The input field for local digits -->
+                      <input
+                        type="tel"
+                        id="phone-input"
                         name="phone_number"
                         placeholder="Write your phone number"
                         required
                         minlength="6"
                         maxlength="15"
                         title="Please enter the local portion of your phone number (6 to 15 digits)."
-                        class="block w-full px-4 py-2 border border-gray-300 rounded-r-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out flex-1">
+                        class="block w-full px-4 py-2 border border-gray-300 rounded-r-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out flex-1"
+                      />
                     </div>
                   </div>
-                  </div>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                   <div>
                     <label
@@ -658,38 +612,43 @@
                   class="form-input-styled w-full border-2 rounded-lg px-2 py-1"
                 />
               </div>
-                <!-- Phone Number Input (Static Country Code Dropdown) -->
+              <!-- Phone Number Input (Static Country Code Dropdown) -->
               <div>
-                <label for="phone-input" class="block text-sm font-medium text-gray-700 mb-1">
-                    Mobile Number
+                <label
+                  for="phone-input"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Mobile Number
                 </label>
-                
+
                 <div class="flex mt-1">
-                    <!-- Country Code Dropdown -->
-                  <select id="country-code" 
+                  <!-- Country Code Dropdown -->
+                  <select
+                    id="country-code"
                     name="country_code"
-                    class="inline-flex items-center w-40 text-sm px-3 py-2 text-gray-700 bg-gray-50 border border-r-0 border-gray-300 rounded-l-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
-                        
+                    class="inline-flex items-center w-40 text-sm px-3 py-2 text-gray-700 bg-gray-50 border border-r-0 border-gray-300 rounded-l-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                  >
                     <!-- Static Options - Added IDs and Codes for clarity -->
-                      <option value="+880" selected>Bangladesh +880</option>
-                      <option value="+91">India +91</option>
-                      <option value="+92">Pakistan +92</option>
-                      <option value="+1">USA/Canada +1</option>
-                      <option value="INT">Others +XXX</option>
-                    </select>
-                    
-                    <!-- The input field for local digits -->
-                    <input 
-                      type="tel" 
-                      id="phone-input" 
-                      name="phone_number"
-                      placeholder="Write your phone number"
-                      required
-                      minlength="6"
-                      maxlength="15"
-                      title="Please enter the local portion of your phone number (6 to 15 digits)."
-                      class="block w-full px-4 py-2 border border-gray-300 rounded-r-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out flex-1">
-                  </div>
+                    <option value="+880" selected>Bangladesh +880</option>
+                    <option value="+91">India +91</option>
+                    <option value="+92">Pakistan +92</option>
+                    <option value="+1">USA/Canada +1</option>
+                    <option value="INT">Others +XXX</option>
+                  </select>
+
+                  <!-- The input field for local digits -->
+                  <input
+                    type="tel"
+                    id="phone-input"
+                    name="phone_number"
+                    placeholder="Write your phone number"
+                    required
+                    minlength="6"
+                    maxlength="15"
+                    title="Please enter the local portion of your phone number (6 to 15 digits)."
+                    class="block w-full px-4 py-2 border border-gray-300 rounded-r-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out flex-1"
+                  />
+                </div>
               </div>
               <div>
                 <label
@@ -787,140 +746,6 @@
         </div>
       </footer>
     </div>
-    <script>
-      // --- Global Variables and Setup ---
-      const customCursor = document.getElementById("custom-cursor");
-      const fullSiteMorphWrapper = document.getElementById(
-        "full-site-morph-wrapper"
-      );
-      const initialModal = document.getElementById("initial-modal");
-      const interactiveElements =
-        "a, button, input, textarea, select, [onclick]"; // Elements that trigger the hover state
-
-      // --- 1. Custom Cursor Logic ---
-      document.addEventListener("mousemove", (e) => {
-        customCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
-      });
-
-      document.addEventListener("mouseover", (e) => {
-        let target = e.target;
-        if (
-          target.matches(interactiveElements) ||
-          target.closest(interactiveElements)
-        ) {
-          customCursor.classList.add("cursor-hover");
-        }
-      });
-
-      document.addEventListener("mouseout", (e) => {
-        let target = e.target;
-        if (
-          target.matches(interactiveElements) ||
-          target.closest(interactiveElements)
-        ) {
-          customCursor.classList.remove("cursor-hover");
-        }
-      });
-
-      // --- 2. Initial Modal Logic ---
-      window.onload = function () {
-        // Restore opacity-0 and pointer-events-none classes which were removed for initial visibility in the original prompt
-        // Now we add them back to ensure the modal disappears after entry.
-        initialModal.classList.remove("opacity-0", "pointer-events-none");
-        document.body.style.overflow = "hidden";
-
-        const homeLink = document.querySelector(
-          '.nav-link[onclick*="home-section"]'
-        );
-        if (homeLink) {
-          // Ensure initial active state is applied after load
-          homeLink.classList.add("bg-gray-100", "text-[#A37A00]");
-        }
-
-        // Check if the device is a touch device and hide the custom cursor if it is
-        if ("ontouchstart" in window || navigator.maxTouchPoints) {
-          customCursor.style.display = "none";
-          document.body.style.cursor = "default"; // Restore default cursor
-        }
-      };
-
-      function closeModal() {
-        initialModal.classList.add("opacity-0");
-        initialModal.querySelector("div:last-child").classList.add("scale-90");
-
-        setTimeout(() => {
-          initialModal.classList.add("hidden", "pointer-events-none");
-          document.body.style.overflow = ""; // Re-enable scrolling
-        }, 500);
-      }
-
-      // --- 3. Dynamic Page Navigation with Full Site Morph Transition ---
-      function changePage(pageId, event) {
-        if (event) event.preventDefault(); // Stop link from jumping
-
-        const targetSection = document.getElementById(pageId);
-        const allSections = document.querySelectorAll(".page-section");
-
-        // Check if the target section is already visible to prevent unnecessary morphing
-        if (targetSection && targetSection.classList.contains("hidden")) {
-          // 1. Start "Morph Out" (Fade and Shrink) transition on the full content wrapper
-          fullSiteMorphWrapper.classList.remove("opacity-100", "scale-100");
-          fullSiteMorphWrapper.classList.add("opacity-0", "scale-95");
-
-          // Wait for the transition out to complete (300ms)
-          setTimeout(() => {
-            // 2. Change content (hide old, show new)
-            allSections.forEach((section) => {
-              section.classList.add("hidden");
-            });
-            targetSection.classList.remove("hidden");
-
-            // 3. Start "Morph In" (Fade and Expand) transition on the full content wrapper
-            fullSiteMorphWrapper.classList.remove("opacity-0", "scale-95");
-            fullSiteMorphWrapper.classList.add("opacity-100", "scale-100");
-
-            // Scroll to the top of the dynamic content container (below the header)
-            const dynamicContentContainer = document.getElementById(
-              "dynamic-content-container"
-            );
-            // Scroll to the content area itself, which is right below the header
-            window.scrollTo({
-              top: dynamicContentContainer.offsetTop - 30,
-              behavior: "smooth",
-            });
-          }, 300);
-
-          // Update active navigation link
-          document.querySelectorAll(".nav-link").forEach((link) => {
-            link.classList.remove("bg-gray-100", "text-[#A37A00]");
-          });
-
-          let activeLink = document.querySelector(
-            `.nav-link[onclick*="${pageId}"]`
-          );
-
-          if (activeLink) {
-            activeLink.classList.add("bg-gray-100", "text-[#A37A00]");
-          }
-        }
-      }
-
-      // --- 4. Form Submission Handler ---
-      function handleAppointmentSubmit(event) {
-        event.preventDefault(); // Prevent actual form submission
-        const form = document.getElementById("appointment-form");
-        const message = document.getElementById("appointment-message");
-        const submitButton = document.getElementById("submit-button");
-
-        // Simulate form submission success
-        message.classList.remove("hidden");
-        form.reset(); // Clear the form
-
-        // Optionally hide the success message after a few seconds
-        setTimeout(() => {
-          message.classList.add("hidden");
-        }, 5000);
-      }
-    </script>
+    <script src="./Scripts/script.js"></script>
   </body>
 </html>

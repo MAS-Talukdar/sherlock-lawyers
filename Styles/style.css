@@ -1,0 +1,68 @@
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* --- Animated Background Layer --- */
+      #animated-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10; /* Ensure it stays behind everything */
+        background-image: url("../assets/background.png");
+        background-size: 200% 400%;
+        animation: gradientShift 20s ease infinite;
+        filter: brightness(0.5); /* Keep it dark and subtle */
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* --- Custom Cursor Styles --- */
+      #custom-cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 35px; /* adjust size */
+        height: 35px;
+        pointer-events: none;
+        z-index: 9999;
+        background: url("../assets/auction.png") no-repeat center/contain;
+        transition: transform 0.05s ease;
+      }
+
+      /* Cursor hover effect */
+      .cursor-hover {
+        transform: translate(-50%, -50%) scale(2);
+        background-color: #ffd700; /*Brighter gold on hover*/
+        /* background-image: url('./assets/auction.png'); */
+      }
+
+      /* --- Modal Backdrop --- */
+      #initial-modal-backdrop {
+        background-color: rgba(
+          0,
+          18,
+          51,
+          0.95
+        ); /* Slightly darker overlay for the modal */
+      }
+
+      /* Responsive Input Styling */
+      .form-input-styled {
+        transition: border-color 0.2s, box-shadow 0.2s;
+        /* Applying Tailwind classes */
+        @apply mt-1 block w-full border-b-2 border-gray-200 p-3 focus:border-[#A37A00] focus:outline-none rounded-t-lg bg-gray-50;
+      }
